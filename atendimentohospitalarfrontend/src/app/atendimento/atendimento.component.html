@@ -1,0 +1,61 @@
+<!--INICIO DO CONTEUDO-->
+<section class="content-header">
+  </section>
+
+  <section class="content">
+    <section class="invoice">
+
+          <form [formGroup]="formAtendimento" (ngSubmit)="salvarAtendimento()">
+            <div class="row">
+              <div class="col-xs-12">
+                <h2 class="page-header">
+                  <i class=""></i> Cadastrar o Atendimento do Paciente
+                </h2>
+              </div>
+            </div>                
+
+            <div class="row invoice-info">
+              <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                  <label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Nome do Paciente</label>
+                  <select formControlName="paciente" name="paciente" class="form-control">
+                    <option value="{{p.id}}" *ngFor="let p of pacientes">{{p.nome}}</option>
+                  </select>
+        
+                </div>
+              </div>
+              <div class="col-sm-3 col-xs-12">
+                    <div class="form-group">
+                      <label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Data do Atendimento</label>
+                      <input type="date" class="form-control" id="inputSuccess" placeholder="Data do Atendimento">
+
+                    </div>
+                  </div>
+              <div class="col-sm-5 col-xs-12">
+                      <div class="form-group">
+                        <label class="control-label " for="inputSuccess"><i class="fa fa-check"></i> Especialidade</label>
+                        <select formControlName="especialidade" name="especialidade" class="form-control">
+                          <option value="{{p.id}}" *ngFor="let p of especialidades">{{p.descricao}}</option>
+                        </select>
+                        
+                      </div>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+            <div class="form-group">
+              <button class="btn btn-primary">Salvar Ficha</button>
+            </div>
+            <div class="row" *ngIf="solicitouAtendimento">
+                <div class="col-xs-12">
+                  <label *ngIf="possuiAutorizacao" class="alert-success"  role="alert">O Plano autorizou o atendimento para essa especialidade!</label>
+                  <label *ngIf="!possuiAutorizacao" class="alert-error"  role="alert">O Plano não autorizou essa especialidade!</label>
+                </div>
+            </div>
+          </form>
+
+
+
+      </section>
+  </section>
+  <!-- FIM DO CONTEUDO-->

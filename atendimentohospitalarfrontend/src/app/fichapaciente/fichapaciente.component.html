@@ -1,0 +1,112 @@
+<!--INICIO DO CONTEUDO-->
+<section class="content-header">
+</section>
+
+<section class="content">
+  <section class="invoice">
+
+    <form [formGroup]="fichaForm" (ngSubmit)="salvarFicha()">
+
+        <div class="row">
+            <div class="col-xs-12">
+              <label class="alert-success" role="alert">{{msgSucesso}}</label>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class=""></i> Cadastrar Ficha do Paciente
+          </h2>
+        </div>
+      </div>
+
+      <div class="row invoice-info">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Nome</label>
+            <input formControlName="nome" name="nome" type="text" class="form-control" placeholder="Nome" maxlength="100">
+            <small *ngIf="f.nome.errors" class="invalid-feedback">
+              <small *ngIf="f.nome.errors.required">Campo obrigatório</small>
+            </small>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Data Nascimento</label>
+            <input formControlName="dataNascimento" name="dataNascimento" type="date" class="form-control" placeholder="Data Nascimento">
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group">
+            <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> CPF</label>
+            <input formControlName="cpf" name="cpf" type="text" class="form-control" placeholder="CPF" maxlength="11">
+            <small *ngIf="f.cpf.errors" class="invalid-feedback">
+              <small *ngIf="f.cpf.errors.required">Campo obrigatório</small>
+            </small>
+          </div>
+        </div>
+        <div class="col-xs-5">
+          <div class="form-group">
+            <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Celular</label>
+            <input formControlName="celular" name="celular" type="text" class="form-control" placeholder="Celular" maxlength="15">
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Sexo</label>
+            <select formControlName="sexo" name="sexo" class='form-control'>
+              <option value='M'>Masculino</option>
+              <option value='F'>Feminino</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> E-mail</label>
+            <input formControlName="email" name="email" type="text" class="form-control" placeholder="E-mail" maxlength="100">
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Nome do Pai</label>
+            <input formControlName="nomePai" name="nomePai" type="text" class="form-control" placeholder="Nome do Pai" maxlength="100">
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Nome da mãe</label>
+            <input formControlName="nomeMae" name="nomeMae" type="text" class="form-control" placeholder="Nome da mãe" maxlength="100">
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Número da carteirinha</label>
+            <input formControlName="numeroCarteira" name="numeroCarteira" type="text" class="form-control" placeholder="Número da carteirinha" maxlength="11">
+            <small *ngIf="f.numeroCarteira.errors" class="invalid-feedback">
+              <small *ngIf="f.numeroCarteira.errors.required">Campo obrigatório</small>
+            </small>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Plano de Saúde</label>
+            <select formControlName="plano" name="plano" class="form-control">
+              <option value="{{p.id}}" *ngFor="let p of planos">{{p.descricao}}</option>
+            </select>
+            <small *ngIf="f.plano.errors" class="invalid-feedback">
+              <small *ngIf="f.plano.errors.required">Campo obrigatório</small>
+            </small>
+          </div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <div class="form-group">
+        <button [disabled]="fichaForm.invalid" class="btn btn-primary">Salvar Ficha</button>
+      </div>
+
+    </form>
+  </section>
+</section>
+<!-- FIM DO CONTEUDO-->
